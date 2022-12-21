@@ -1,13 +1,25 @@
 <?php
-    $charachters = [
+    /*$charachters = [
         "letters" => "abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWYZ",
         "numbers" => "0123456789",
         "symbols" => "!#$^&*"
     ];
+    */
+    $charachters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","y","z","A","B","C","D","E","U","V","W","Y","Z","0","1","2","3","4",
+    "Z","5","6","7","8","9","!","#","$","^","&","*"];
 
     $password_len = $_GET["passwordLenght"] ?? "";
+    //$preference = $_GET["preference"] ?? "";
+    //$repetition = $_GET["rep"] ?? "";
+    function getPsw ($charachters) {
+        $pass = "";
+        for($i = 0;  $i < $_GET["passwordLenght"]; $i++){
+          
+            $pass .=  $charachters[rand(0, count ($charachters) -1)];
+        }
+        echo $pass;
 
-
+    };
 
 ?>
 
@@ -32,7 +44,7 @@
     <main class="container p-4 ">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-sm-6">         
-                <form action="" method="GET">
+                <form action="index.php" method="GET">
                     <div class="form-group row d-flex justify-content-between ">
                         <label class="col-sm-2 col-form-label">Lunghezza password </label>
                         <div class="col-sm-6">
@@ -45,13 +57,13 @@
                         <legend class="col-form-label col-sm-6 pt-0 ">Consenti ripetizioni di uno o più caratteri:</legend>
                         <div class="col-sm-6 ">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="yes" value="option1" checked >
+                                <input class="form-check-input" type="radio" name="rep" value="1" checked >
                                 <label class="form-check-label">
                                     yes
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio"  name="no" value="option2" checked >
+                                <input class="form-check-input" type="radio"  name="rep" value="0" checked >
                                 <label class="form-check-label" >
                                     no
                                 </label>
@@ -65,15 +77,15 @@
                             <div class="form-check">
 
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" name="lettere">
+                                    <input type="checkbox" class="form-check-input" name="preference">
                                     <label class="form-check-label">Lettere</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input"   name="numeri">
+                                    <input type="checkbox" class="form-check-input"   name="preference">
                                     <label class="form-check-label" >Numeri</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input"   name="simboli">
+                                    <input type="checkbox" class="form-check-input"   name="preference">
                                     <label class="form-check-label" >Simboli</label>
                                 </div>
                             </div>
@@ -86,8 +98,20 @@
                         </div>
                     </div>
                 </form>
+
             </div>
-        </div>
+            <div class="d-flex justify-content-center p-4">
+                <h1>password:</h1>
+
+                <div>
+                    <?php  if(!empty($_GET["passwordLenght"])) : ?>
+                        <h1>
+                            <?php getPsw($charachters); ?>
+                        </h1>
+                    <?php  endif; ?>
+                        
+                </div>
+            </div>
 
     </main>
     
