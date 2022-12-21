@@ -1,4 +1,15 @@
+<?php
+    $charachters = [
+        "letters" => "abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWYZ",
+        "numbers" => "0123456789",
+        "symbols" => "!#$^&*"
+    ];
 
+    $password_len = $_GET["passwordLenght"] ?? "";
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +36,7 @@
                     <div class="form-group row d-flex justify-content-between ">
                         <label class="col-sm-2 col-form-label">Lunghezza password </label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" placeholder="" name:"passwordLenght" >
+                            <input type="text" class="form-control" placeholder="" name="passwordLenght" >
                         </div>
                     </div>
                     
@@ -34,13 +45,13 @@
                         <legend class="col-form-label col-sm-6 pt-0 ">Consenti ripetizioni di uno o più caratteri:</legend>
                         <div class="col-sm-6 ">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio"name:"yes" value="option1" checked >
+                                <input class="form-check-input" type="radio" name="yes" value="option1" checked >
                                 <label class="form-check-label">
                                     yes
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio"  name:"no" value="option2" checked >
+                                <input class="form-check-input" type="radio"  name="no" value="option2" checked >
                                 <label class="form-check-label" >
                                     no
                                 </label>
@@ -54,15 +65,15 @@
                             <div class="form-check">
 
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" name:"lettere">
+                                    <input type="checkbox" class="form-check-input" name="lettere">
                                     <label class="form-check-label">Lettere</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input"   name:"numeri">
+                                    <input type="checkbox" class="form-check-input"   name="numeri">
                                     <label class="form-check-label" >Numeri</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input"   name:"simboli">
+                                    <input type="checkbox" class="form-check-input"   name="simboli">
                                     <label class="form-check-label" >Simboli</label>
                                 </div>
                             </div>
