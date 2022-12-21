@@ -1,4 +1,5 @@
 <?php
+    include __DIR__ . '/functions.php';
     /*$charachters = [
         "letters" => "abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWYZ",
         "numbers" => "0123456789",
@@ -11,7 +12,7 @@
     $password_len = $_GET["passwordLenght"] ?? "";
     //$preference = $_GET["preference"] ?? "";
     //$repetition = $_GET["rep"] ?? "";
-    function getPsw ($charachters) {
+    /*function getPsw ($charachters) {
         $pass = "";
         for($i = 0;  $i < $_GET["passwordLenght"]; $i++){
           
@@ -19,7 +20,7 @@
         }
         echo $pass;
 
-    };
+    };*/
 
 ?>
 
